@@ -13,11 +13,33 @@ console.log(showOriginalText)
 function BackFromPirate (captain) {
 
     let originalText = []
-    let removeNextChar = false
 
-    for (var char of captain) {
-        if (char.toLowerCase() == "o") {
-            removeNextChar = true;
+    for (i = 0; i < captain.length; i++) {
+
+        let removeNext = false
+        if (captain[i].toLowerCase == captain[i + 2].toLowerCase 
+            && captain[i + 1].toLowerCase == "o"){
+                removeNext = true
+                continue;
+        }
+        else if (removeNext == true && captain[i].toLowerCase == "o")
+        {
+            removeNext = true
+            continue
+        }
+        else if (removeNext == true && !captain[i].toLowerCase == "o")
+        {
+            removeNext = false
+            originalText.push(captain[i])
+        }
+        else {
+            originalText.push(captain[i])
+        }
+    }
+    return returnOriginText = originalText.join("")
+}
+     /*    if (char.toLowerCase() == "o" && i - 1 == i + i) {
+
             continue;
         }
         else if (removeNextChar == true){
@@ -30,8 +52,8 @@ function BackFromPirate (captain) {
     }
     let returnText = originalText.join("")
     
-    return returnText
-}
+    return returnText */
+
 
 /* const longWord = LongestWord(text)
 console.log(longWord) */
@@ -89,4 +111,3 @@ function PirateLang(text, constants) {
     }
     return pirateResult = pirateText.join("");
 }
-
